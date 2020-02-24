@@ -1,0 +1,7 @@
+/*Styles fuer home*/
+main {
+  /* Hintergrundbild für home */
+  height: 100%;
+  /* background-image: url('src/assets/images/startseiteBackground.jpg'); */
+  background-size: 100%;
+}

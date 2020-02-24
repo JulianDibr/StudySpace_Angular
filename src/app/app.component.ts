@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StudySpace';
+  welcomeText = 'Willkommen bei StudySpace, <br>dem Netzwerk für Studierende';
 }
