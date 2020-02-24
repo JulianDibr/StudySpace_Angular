@@ -1,3 +1,6 @@
+# Start Backend
+    cd backend  =>  npm start => startet den server über nodemon im dev modus
+
 # StudySpace
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.

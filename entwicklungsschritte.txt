@@ -1,0 +1,15 @@
+Erstellen des Projekts
+Einfügen der basic dependencies (bootstrap, expressjs etc)
+Erstellen der components für login und register ==> Routes dafür anlegen
+
+Erstellen des Backends
+Ordner anlegen
+database order mit db.js => Enthält string für DB Zugriff 
+Neue Database im Cluster erstellen mit StudySpace name
+Collection mit name User erstellen
+model für User erstellen
+routes für User erstellen
+Generelle app.js zum launchen des backends
+Installation der MongoDB software
+dependencies für backend installieren (cors, body-parser, expressjs, nodemon)
+package.json anpassen um mit "npm start" die app.js per nodemon zu starten
