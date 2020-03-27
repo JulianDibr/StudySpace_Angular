@@ -3,8 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+
+//Custom Components
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
+
+//Services
+import { ApiService } from 'src/shared/api.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +20,10 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

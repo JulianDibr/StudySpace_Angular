@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 //Collection and Schema for a user
 let User = new Schema({
+    id: {
+        type: Number
+    },
+
     first_name: {
         type: String
     },
