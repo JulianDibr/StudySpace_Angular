@@ -1,12 +1,26 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
+
+import { IndexComponent } from './components/index/index.component';
+import {IndexStartComponent} from './components/index/index-start/index-start.component';
+import {IndexLoginComponent} from './components/index/index-login/index-login.component';
+import {IndexRegisterComponent} from './components/index/index-register/index-register.component';
+import {IndexForgotPasswordComponent} from './components/index/index-forgot-password/index-forgot-password.component';
+
+import {HomeComponent} from './components/home/home.component';
+import {AuthGuard} from './guard/auth.guard';
 
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent},
-  { path: 'login', component: LoginComponent}
+  { path: '', component: IndexComponent,
+    children: [
+      { path: '', component: IndexStartComponent },
+      { path: 'login', component: IndexLoginComponent },
+      { path: 'register', component: IndexRegisterComponent },
+      { path: 'forgot-password', component: IndexForgotPasswordComponent },
+    ]
+  },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

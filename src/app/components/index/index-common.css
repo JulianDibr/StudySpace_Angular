@@ -1,0 +1,34 @@
+.form-container
+{
+  max-width: 90%;
+}
+
+@media (min-width: 768px) {
+  .form-container
+  {
+    max-width: 450px;
+  }
+}
+
+.index-btn {
+  height: 50px;
+  width: 100%;
+  color: var(--white-color);
+  background-color: var(--light-green-color);
+  margin-top: 20px;
+}
+
+.index-btn:active,.index-btn.active{
+  background-color: var(--dark-green-color);
+}
+
+.index-input
+{
+  height: 50px;
+  width: 100%;
+  background-color: #fcfcfc;
+  border: var(--border);
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 0 10px;
+}

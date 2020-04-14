@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --white-color: #ffffff;
+    --dark-green-color: #5C806F;
+    --light-green-color: #77A691;
+    --border: 1px solid #cccccc;
+}
+
+.content {
+    margin: auto 30px;
+}
+
+/*===Header===*/
+#header-wrapper {
+    background-color: var(--dark-green-color);
+    height: 60px;
+    width: 100%;
+    margin: 0;
+}
+
+#header-title {
+    font-size: 30px;
+    color: var(--white-color);
+    padding-top: 5px;
+}
+
+.header-buttons {
+    margin-top: 12px;
+    height: 35px;
+}
+
+/*===/Header===*/
+
+/*===Text===*/
+/*=====Colors==*/
+.text-white {
+    color: var(--white-color);
+}
+
+/*=====/Text==*/
+/*===/Icons===*/
+
+/*===Icons===*/
+/*=====Colors==*/
+.icon-white {
+    color: var(--white-color);
+}
+
+/*=====/Colors==*/
+/*===/Icons===*/

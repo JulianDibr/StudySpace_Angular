@@ -1,0 +1,19 @@
+<div id="header-wrapper" class="header">
+    <div class="row m-0">
+        <div class="col-10">
+            <button class="btn" routerLink="/">
+                <img src="assets/img/logo.png" alt="StudySpace Logo" height="40px" style="margin-top: -20px;"/>
+            </button>
+
+            <label id="header-title">StudySpace</label>
+        </div>
+        <div class="col-2 text-right">
+            <button class="header-buttons btn mr-2 text-white" (click)="authService.logoutUser()" title="Ausloggen"
+                    type="button">
+                <fa-icon class="ml-2 icon-white fa-lg" [icon]="faSignOutAlt"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div style="height: 500px">Test</div>

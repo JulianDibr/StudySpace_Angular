@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-1">
+        <button class="btn text-left" routerLink="/">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </button>
+    </div>
+</div>
+
+<form method="post">
+    <div class="row">
+        <div class="col-6 pr-1">
+            <input [(ngModel)]="registerData.first_name" name="first_name" class="index-input" type="text"
+                   placeholder="Vorname">
+        </div>
+        <div class="col-6 pl-1">
+            <input [(ngModel)]="registerData.last_name" name="last_name" class="index-input" type="text"
+                   placeholder="Nachname">
+        </div>
+    </div>
+
+    <input [(ngModel)]="registerData.email" name="email" class="index-input w-100" type="text"
+           placeholder="E-Mail Adresse">
+    <input [(ngModel)]="registerData.password" name="password" class="index-input w-100" type="password"
+           placeholder="Passwort">
+    <input [(ngModel)]="registerData.password_confirm" name="password_confirm" class="index-input w-100" type="password"
+           placeholder="Passwort bestätigen">
+
+    <button (click)="registerUser()" class="index-btn btn outline-0 w-100">Registrieren</button>
+</form>

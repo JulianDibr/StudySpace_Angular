@@ -7,46 +7,70 @@ let express = require('express'),
     mongoose = require('mongoose'),
     cors = require('cors'),
     bodyParser = require('body-parser'),
-    dataBaseConfig = require('./database/db');
+    dataBaseConfig = require('./database/db'),
+    jwt = require('jsonwebtoken');
 
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(dataBaseConfig.db, {
-  useNewUrlParser: true
+    useNewUrlParser: true
 }).then(() => {
-    console.log('Database connected sucessfully ')
-  },
-  error => {
-    console.log('Could not connected to database : ' + error)
-  }
-)
+        console.log('Database connected sucessfully ')
+    },
+    error => {
+        console.log('Could not connected to database : ' + error)
+    }
+);
 
 // Set up express js port
-const userRoute = require('../backend/routes/user.routes')
+const userRoute = require('../backend/routes/user.routes');
+const postRoute = require('../backend/routes/post.routes');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
 app.use(cors());
 
-app.use('/api', userRoute)
+app.use('/user', userRoute);
+app.use('/posts', function(req,res,next){
+    verifyToken(req,res,next);
+    next(postRoute);
+});
+
+
+function verifyToken(req, res, next) {
+    console.log(req);
+    if (!req.headers.authorization) {
+        return res.status(401).send("Unauthorized request");
+    }
+    let token = req.headers.authorization.split(" ")[1];
+    if (token === "null") {
+        return res.status(401).send("Unauthorized request");
+    }
+    let payload = jwt.verify(token, 'secretKey');
+    if (!payload) {
+        return res.status(401).send("Unauthorized request");
+    }
+    req.userId = payload.subject;
+    next();
+}
 
 // Create port
 const port = process.env.PORT || 4000;
 const server = app.listen(port, () => {
-  console.log('Connected to port ' + port)
-})
+    console.log('Connected to port ' + port)
+});
 
 // Find 404 and hand over to error handler
 app.use((req, res, next) => {
-  // next(createError(404));
-  next(res.send("<h1>404 Error</h1>"));
+    // next(createError(404));
+    next(res.send("<h1>404 Error</h1>"));
 });
 
 // error handler
 app.use(function (err, req, res, next) {
-  console.error(err.message);
-  if (!err.statusCode) err.statusCode = 500;
-  res.status(err.statusCode).send(err.message);
+    console.error(err.message);
+    if (!err.statusCode) err.statusCode = 500;
+    res.status(err.statusCode).send(err.message);
 });

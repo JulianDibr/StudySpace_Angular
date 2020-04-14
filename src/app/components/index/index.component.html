@@ -1,0 +1,35 @@
+<!-- Startseite mit Logo und Links zu Login und Registrierung -->
+<div id="header-wrapper" class="header">
+    <div class="row">
+        <div class="col-10">
+            <button class="btn" routerLink="/">
+                <img src="assets/img/logo.png" alt="StudySpace Logo" height="40px" style="margin-top: -20px;"/>
+            </button>
+
+            <label id="header-title">StudySpace</label>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+</div>
+
+<div class="content index-content">
+  <div class="row text-center">
+    <div class="col-md-6 col-12 mb-5 mb-lg-0">
+      <!-- ToDo: Grafik ersetzen -->
+      <img src="assets/img/logo.png" alt="StudySpace Logo" width="85%" style="max-width: 350px" class="mx-auto"/>
+      <h2 [innerHTML]="welcomeText" class="mt-4"></h2>
+    </div>
+
+    <div class="col-md-6 col-12 my-auto">
+      <div class="form-container mx-auto">
+        <div class="row">
+          <div class="col-12 col-md-8 offset-md-2">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

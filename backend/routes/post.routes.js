@@ -1,9 +1,23 @@
 //Quelle für Basic REST layout: https://www.positronx.io/angular-8-mean-stack-tutorial-build-crud-angular-material/
 const express = require('express');
 const app = express();
-const userRoute = express.Router();
+const postRoute = express.Router();
 const jwt = require('jsonwebtoken');
 
+//TODO: DELETE
+/*postRoute.get('/', (req, res) => {
+    let posts = [{'name': 'test'}];
+
+    res.json(posts);
+});*/
+
+// Get all posts
+postRoute.route('/').get((req, res) => {
+    let posts = [{'name': 'test'}];
+
+    res.json(posts);
+});
+/*
 // User model
 let User = require('../model/User');
 
@@ -92,6 +106,6 @@ userRoute.route('/delete-user/:id').delete((req, res, next) => {
             })
         }
     })
-});
+});*/
 
-module.exports = userRoute;
+module.exports = postRoute;

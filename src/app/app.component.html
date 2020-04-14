@@ -1,32 +1,3 @@
-<!-- Startseite mit Logo und Links zu Login und Registrierung -->
-
-<div style="height: 100vh" class="container">
-  <div class="row text-center h-100">
-    <!--Linke Spalte-->
-    <div class="col-md-6 col-12 my-auto">
-      <!-- ToDo: Grafik ersetzen -->
-      <img src="../assets/img/logo.png" alt="StudySpace Logo Big" width="350" />
-      <h2 [innerHTML]="welcomeText"></h2>
-    </div>
-    <!--Rechte Spalte-->
-    <div class="col-md-6 col-12 my-auto">
-      <div>
-        <!-- Login -->
-        <a routerLink="/login">
-          <button>
-            Einloggen
-          </button>
-        </a>
-
-        <!-- Registrieren -->
-        <a routerLink="/register">
-          <button>
-            Registrieren
-          </button>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <router-outlet></router-outlet>
+
+<app-footer></app-footer>

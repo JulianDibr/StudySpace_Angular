@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-1">
+        <button class="btn text-left" routerLink="/">
+            <fa-icon [icon]="faArrowLeft"></fa-icon>
+        </button>
+    </div>
+</div>
+
+<form method="post">
+    <input [(ngModel)]="loginData.email" name="email" class="index-input" type="email"
+           placeholder="E-Mail Adresse">
+
+    <input [(ngModel)]="loginData.password " name="password" class="index-input" type="password"
+           placeholder="Passwort">
+
+    <button (click)="loginUser()" class="index-btn btn">Einloggen</button>
+</form>

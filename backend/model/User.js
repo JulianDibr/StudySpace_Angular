@@ -14,8 +14,8 @@ let User = new Schema({
     last_name: {
         type: String
     },
-    
-    email_adress: {
+
+    email: {
         type: String
     },
 
@@ -24,6 +24,6 @@ let User = new Schema({
     }
 }, {
     collection: 'users'
-})
+});
 
 module.exports = mongoose.model('User', User);
