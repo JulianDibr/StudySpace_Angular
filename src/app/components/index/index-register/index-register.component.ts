@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import {AuthService} from '../../../services/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-index-register',
@@ -8,10 +8,9 @@ import {AuthService} from '../../../services/auth.service';
     styleUrls: ['./index-register.component.css', '../index-common.css']
 })
 export class IndexRegisterComponent implements OnInit {
-    faArrowLeft = faArrowLeft;
     registerData = {first_name: '', last_name: '', email: '', password: '', password_confirm: ''};
 
-    constructor(private auth: AuthService) {
+    constructor(private auth: AuthService, private router: Router) {
     }
 
     ngOnInit() {
@@ -26,6 +25,7 @@ export class IndexRegisterComponent implements OnInit {
                     res => {
                         console.log(res);
                         localStorage.setItem('token', res.token);
+                        this.router.navigate(['/home']);
                     },
                     err => console.log(err)
                 );

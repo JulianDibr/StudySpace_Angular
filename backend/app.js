@@ -13,7 +13,8 @@ let express = require('express'),
 // Connecting mongoDB
 mongoose.Promise = global.Promise;
 mongoose.connect(dataBaseConfig.db, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 }).then(() => {
         console.log('Database connected sucessfully ')
     },
@@ -24,7 +25,7 @@ mongoose.connect(dataBaseConfig.db, {
 
 // Set up express js port
 const userRoute = require('../backend/routes/user.routes');
-const postRoute = require('../backend/routes/post.routes');
+const postingRoute = require('../backend/routes/post.routes');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -33,28 +34,7 @@ app.use(bodyParser.urlencoded({
 app.use(cors());
 
 app.use('/user', userRoute);
-app.use('/posts', function(req,res,next){
-    verifyToken(req,res,next);
-    next(postRoute);
-});
-
-
-function verifyToken(req, res, next) {
-    console.log(req);
-    if (!req.headers.authorization) {
-        return res.status(401).send("Unauthorized request");
-    }
-    let token = req.headers.authorization.split(" ")[1];
-    if (token === "null") {
-        return res.status(401).send("Unauthorized request");
-    }
-    let payload = jwt.verify(token, 'secretKey');
-    if (!payload) {
-        return res.status(401).send("Unauthorized request");
-    }
-    req.userId = payload.subject;
-    next();
-}
+app.use('/posting', postingRoute);
 
 // Create port
 const port = process.env.PORT || 4000;
@@ -64,6 +44,7 @@ const server = app.listen(port, () => {
 
 // Find 404 and hand over to error handler
 app.use((req, res, next) => {
+    console.log("404")
     // next(createError(404));
     next(res.send("<h1>404 Error</h1>"));
 });

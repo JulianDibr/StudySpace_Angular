@@ -9,6 +9,7 @@ import {IndexForgotPasswordComponent} from './components/index/index-forgot-pass
 
 import {HomeComponent} from './components/home/home.component';
 import {AuthGuard} from './guard/auth.guard';
+import {FeedComponent} from './components/feed/feed.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,11 @@ const routes: Routes = [
       { path: 'forgot-password', component: IndexForgotPasswordComponent },
     ]
   },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard]}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard],
+    children: [
+        { path: '', component: FeedComponent},
+    ]
+  },
 ];
 
 @NgModule({

@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
 
@@ -9,7 +8,6 @@ import {Router} from '@angular/router';
     styleUrls: ['./index-login.component.css', '../index-common.css']
 })
 export class IndexLoginComponent implements OnInit {
-    faArrowLeft = faArrowLeft;
     loginData = {email: '', password: ''};
 
     constructor(private auth: AuthService, private router: Router) {

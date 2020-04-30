@@ -5,7 +5,10 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {far} from '@fortawesome/free-regular-svg-icons';
+import {faCheckCircle, faTimesCircle, faSignOutAlt, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
 // Services
 import {ApiService} from 'src/app/services/api.service';
@@ -22,6 +25,10 @@ import {IndexLoginComponent} from './components/index/index-login/index-login.co
 import {IndexRegisterComponent} from './components/index/index-register/index-register.component';
 import {IndexForgotPasswordComponent} from './components/index/index-forgot-password/index-forgot-password.component';
 import {HomeService} from './services/home.service';
+import {SidebarComponent} from './components/shared/sidebar/sidebar.component';
+import {FeedComponent} from './components/feed/feed.component';
+import {NewPostingComponent} from './components/shared/new-posting/new-posting.component';
+import {PostingComponent} from './components/shared/posting/posting.component';
 
 @NgModule({
     declarations: [
@@ -32,14 +39,20 @@ import {HomeService} from './services/home.service';
         IndexStartComponent,
         IndexLoginComponent,
         IndexRegisterComponent,
-        IndexForgotPasswordComponent
+        IndexForgotPasswordComponent,
+        SidebarComponent,
+        SidebarComponent,
+        FeedComponent,
+        NewPostingComponent,
+        PostingComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         HttpClientModule,
         FontAwesomeModule,
-        FormsModule
+        FormsModule,
+        FontAwesomeModule
     ],
     providers: [ApiService, AuthService, AuthGuard, HomeService,
         {
@@ -51,4 +64,8 @@ import {HomeService} from './services/home.service';
     bootstrap: [AppComponent]
 })
 export class AppModule {
+    constructor(library: FaIconLibrary) {
+        library.addIconPacks(fas, far);
+        library.addIcons(faCheckCircle, faTimesCircle, faSignOutAlt, faArrowLeft);
+    }
 }

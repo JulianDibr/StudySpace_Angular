@@ -1,4 +1,4 @@
-<div id="header-wrapper" class="header">
+<div id="header-wrapper" class="header sticky-top">
     <div class="row m-0">
         <div class="col-10">
             <button class="btn" routerLink="/">
@@ -10,10 +10,16 @@
         <div class="col-2 text-right">
             <button class="header-buttons btn mr-2 text-white" (click)="authService.logoutUser()" title="Ausloggen"
                     type="button">
-                <fa-icon class="ml-2 icon-white fa-lg" [icon]="faSignOutAlt"></fa-icon>
+                <fa-icon class="ml-2 icon-white fa-lg" icon="sign-out-alt"></fa-icon>
             </button>
         </div>
     </div>
 </div>
 
-<div style="height: 500px">Test</div>
+<app-sidebar class="pl-0 d-none d-md-block"></app-sidebar>
+
+<div class="home-content overflow-auto" style="min-height: calc(100vh - 210px)">
+    <div class="content pt-4 pb-4">
+        <router-outlet></router-outlet>
+    </div>
+</div>

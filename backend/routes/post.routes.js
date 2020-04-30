@@ -1,43 +1,51 @@
 //Quelle für Basic REST layout: https://www.positronx.io/angular-8-mean-stack-tutorial-build-crud-angular-material/
 const express = require('express');
 const app = express();
-const postRoute = express.Router();
+const postingRoute = express.Router();
 const jwt = require('jsonwebtoken');
 
-//TODO: DELETE
-/*postRoute.get('/', (req, res) => {
-    let posts = [{'name': 'test'}];
-
-    res.json(posts);
-});*/
+// User model
+let Posting = require('../model/Posting');
 
 // Get all posts
-postRoute.route('/').get((req, res) => {
+postingRoute.route('/').get((req, res) => {
     let posts = [{'name': 'test'}];
 
     res.json(posts);
 });
-/*
-// User model
-let User = require('../model/User');
 
 // Register User
-userRoute.post('/register', (req, res) => {
-    //TODO: Check if email already used
+postingRoute.post('/new', verifyToken,(req, res) => {
     let data = req.body;
-    let user = new User(data);
-    user.save((error, registeredUser) => {
+    let posting = new Posting(data);
+    posting.save((error, savedPost) => {
         if (error) {
             console.log(error);
         } else {
-            let payload = { subject: registeredUser._id };
+            let payload = {subject: posting._id};
             let token = jwt.sign(payload, 'secretKey');
-            res.status(200).send({token});
+            res.status(200).send(posting);
         }
     });
 });
 
-// Register User
+function verifyToken(req, res, next) {
+    if (!req.headers.authorization) {
+        return res.status(401).send("Unauthorized request");
+    }
+    let token = req.headers.authorization.split(" ")[1];
+    if (token === "null") {
+        return res.status(401).send("Unauthorized request");
+    }
+    let payload = jwt.verify(token, 'secretKey');
+    if (!payload) {
+        return res.status(401).send("Unauthorized request");
+    }
+    req.userId = payload.subject;
+    next();
+}
+
+/*// Register User
 userRoute.post('/login', (req, res) => {
     let data = req.body;
     User.findOne({email: data.email}, (error, user) => {
@@ -108,4 +116,4 @@ userRoute.route('/delete-user/:id').delete((req, res, next) => {
     })
 });*/
 
-module.exports = postRoute;
+module.exports = postingRoute;
