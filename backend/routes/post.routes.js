@@ -9,13 +9,17 @@ let Posting = require('../model/Posting');
 
 // Get all posts
 postingRoute.route('/').get((req, res) => {
-    let posts = [{'name': 'test'}];
-
-    res.json(posts);
+    Posting.find((error, data) => {
+        if (error) {
+            return next(error)
+        } else {
+            res.json(data)
+        }
+    })
 });
 
 // Register User
-postingRoute.post('/new', verifyToken,(req, res) => {
+postingRoute.post('/new', verifyToken, (req, res) => {
     let data = req.body;
     data.user_id = req.userId;
 

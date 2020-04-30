@@ -21,6 +21,10 @@
 
 }
 
-.location-name{
+.posting-location-name{
     font-size: 14px;
+}
+
+.posting-time{
+    font-size: 12px;
 }

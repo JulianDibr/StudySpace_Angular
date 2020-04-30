@@ -6,7 +6,12 @@
             </div>
         </div>
         <div class="col-8">
-            <span class="location-name">{{posting.user_name}} postete in {{posting.location}}</span>
+            <div class="row">
+                <span class="posting-location-name col-12">{{posting.user_name}} postete in {{posting.location}}</span>
+            </div>
+            <div class="row">
+                <span class="posting-time col-12">{{posting.timestamp}}</span>
+            </div>
         </div>
     </div>
 
@@ -19,7 +24,7 @@
 
         <div class="row mt-1 h-100">
             <div class="col-5 text-center">
-<!--                TODO: Active/Inactive bases on users_vote-->
+                <!--                TODO: Active/Inactive bases on users_vote-->
                 <button class="btn" (click)="downvotePosting()">
                     <fa-icon class="fa-lg icon-red" [icon]="['far', 'thumbs-down']"></fa-icon>
                 </button>
