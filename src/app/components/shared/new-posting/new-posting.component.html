@@ -8,9 +8,6 @@
     </div>
 
     <form method="post">
-        <input type="hidden" [(ngModel)]="postingData.user_id" name="user_id" value="1">
-        <input type="hidden" [(ngModel)]="postingData.location_type" name="location_type" value="1">
-        <input type="hidden" [(ngModel)]="postingData.location_id" name="location_id" value="1">
         <div class="row mt-2">
             <div class="col-12">
                 <textarea [(ngModel)]="postingData.content" name="content" class="p-2 posting-content"
@@ -20,7 +17,7 @@
 
         <div class="row mt-1">
             <div class="col-6 text-center">
-                <button class="btn">
+                <button class="btn" (click)="clearPosting()">
                     <fa-icon class="fa-lg" [icon]="['far', 'times-circle']"></fa-icon>
                 </button>
             </div>

@@ -17,13 +17,13 @@ postingRoute.route('/').get((req, res) => {
 // Register User
 postingRoute.post('/new', verifyToken,(req, res) => {
     let data = req.body;
+    data.user_id = req.userId;
+
     let posting = new Posting(data);
     posting.save((error, savedPost) => {
         if (error) {
             console.log(error);
         } else {
-            let payload = {subject: posting._id};
-            let token = jwt.sign(payload, 'secretKey');
             res.status(200).send(posting);
         }
     });

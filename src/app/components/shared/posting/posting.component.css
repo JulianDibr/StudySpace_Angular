@@ -1,0 +1,26 @@
+.posting-container {
+    border: var(--border);
+    border-radius: var(--border-radius);
+    min-height: 300px;
+    background-color: var(--white-color);
+}
+
+
+.profile-picture {
+    /*border: var(--border);*/
+    /*border-radius: var(--border-radius);*/
+}
+
+.posting-content {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    /*border: var(--border);*/
+    border: none;
+    border-radius: var(--border-radius);
+
+}
+
+.location-name{
+    font-size: 14px;
+}

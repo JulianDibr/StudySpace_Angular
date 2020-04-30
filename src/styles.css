@@ -4,6 +4,8 @@
     --white-hover-color: #e1fff0;
     --dark-green-color: #5C806F;
     --light-green-color: #77a691;
+    --red-color: #B34A39;
+    --red-hover-color: #993F31;
     --border: 1px solid #cccccc;
     --border-radius: 5px;
 }
@@ -59,6 +61,14 @@
 
 .icon-light-green:hover {
     color: var(--dark-green-color);
+}
+
+.icon-red {
+    color: var(--red-color);
+}
+
+.icon-red:hover {
+    color: var(--red-hover-color);
 }
 
 /*=====/Colors==*/

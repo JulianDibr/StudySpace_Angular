@@ -23,7 +23,6 @@ export class IndexRegisterComponent implements OnInit {
             this.auth.registerUser(this.registerData)
                 .subscribe(
                     res => {
-                        console.log(res);
                         localStorage.setItem('token', res.token);
                         this.router.navigate(['/home']);
                     },

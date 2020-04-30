@@ -5,10 +5,5 @@
 </div>
 <div class="row">
     <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
-    <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
-    <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
-    <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
-    <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
-    <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
-    <app-new-posting class="col-12 col-md-6 col-lg-4"></app-new-posting>
+    <app-posting *ngFor="let posting of postings" [posting]="posting" class="col-12 col-md-6 col-lg-4"></app-posting>
 </div>

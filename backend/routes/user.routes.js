@@ -16,7 +16,7 @@ userRoute.post('/register', (req, res) => {
         if (error) {
             console.log(error);
         } else {
-            let payload = { subject: registeredUser._id };
+            let payload = { subject: registeredUser._id, userData: user };
             let token = jwt.sign(payload, 'secretKey');
             res.status(200).send({token});
         }
@@ -37,7 +37,7 @@ userRoute.post('/login', (req, res) => {
                 if (user.password !== data.password) {
                     res.status(401).send('Das eingegebene Passwort ist nicht korrekt');
                 } else {
-                    let payload = { subject: user._id };
+                    let payload = { subject: user._id, userData: user };
                     let token = jwt.sign(payload, 'secretKey');
                     res.status(200).send({token});
                 }
