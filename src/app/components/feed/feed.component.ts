@@ -8,24 +8,7 @@ import {HomeService} from '../../services/home.service';
 })
 export class FeedComponent implements OnInit {
     //TODO: Get array of all relevant postings ==> save to array
-    postings = [
-/*        {
-            user_name: 'Test Person',
-            location: 'Allgemein',
-            content: 'Hier ist ein Post :o',
-            voting: '3',
-            users_vote: '0',
-            timestamp: '30.04.2020, 14:20'
-        },
-        {
-            user_name: 'Julian Dibrani',
-            location: 'Allgemein',
-            content: 'Das funktioniert einfach :o',
-            voting: '420',
-            users_vote: '2',
-            timestamp: '30.04.2020, 04:20'
-        }*/
-    ];
+    postings = [];
 
     constructor(private home: HomeService) {
     }

@@ -8,7 +8,7 @@ import {AuthService} from '../../../services/auth.service';
     styleUrls: ['./new-posting.component.css']
 })
 export class NewPostingComponent implements OnInit {
-    postingData = {content: '', user_id: '', location_type: '1', location_id: '1'};
+    postingData = {content: '', user: '', location_type: '1', location_id: '1'};
 
     constructor(private home: HomeService, private auth: AuthService) {
     }

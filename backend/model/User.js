@@ -17,7 +17,9 @@ let User = new Schema({
 
     password: {
         type: String //TODO: Encrypt password
-    }
+    },
+
+    postings: [{ type: Schema.Types.ObjectId, ref: "Posting"}]
 }, {
     collection: 'users'
 });

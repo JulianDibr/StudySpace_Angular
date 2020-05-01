@@ -8,11 +8,12 @@ const jwt = require('jsonwebtoken');
 let Posting = require('../model/Posting');
 
 // Get all posts
-postingRoute.route('/').get((req, res) => {
-    Posting.find((error, data) => {
+postingRoute.get('/', verifyToken, (req, res) => {
+    Posting.find().populate('user').exec((error, data) => {
         if (error) {
             return next(error)
         } else {
+            console.log(data);
             res.json(data)
         }
     })
@@ -21,14 +22,14 @@ postingRoute.route('/').get((req, res) => {
 // Register User
 postingRoute.post('/new', verifyToken, (req, res) => {
     let data = req.body;
-    data.user_id = req.userId;
+    data.user = req.userId;
 
     let posting = new Posting(data);
     posting.save((error, savedPost) => {
         if (error) {
             console.log(error);
         } else {
-            res.status(200).send(posting);
+            res.status(200).send(savedPost);
         }
     });
 });

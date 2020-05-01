@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 //Collection and Schema for a user
 let Posting = new Schema({
-    user_id: {
-        type: String
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
     },
     content: {
         type: String
