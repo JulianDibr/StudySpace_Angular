@@ -1,7 +1,7 @@
 .posting-container {
     border: var(--border);
     border-radius: var(--border-radius);
-    min-height: 300px;
+    min-height: 275px;
     background-color: var(--white-color);
 }
 

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import * as moment from 'moment/moment';
 
 @Component({
     selector: 'app-root',
@@ -9,5 +10,6 @@ export class AppComponent implements OnInit {
     title = 'StudySpace';
 
     ngOnInit() {
+        moment.locale('de');
     }
 }

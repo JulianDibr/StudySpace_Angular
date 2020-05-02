@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import * as moment from 'moment/moment';
 
 @Component({
     selector: 'app-posting',
@@ -8,15 +9,16 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PostingComponent implements OnInit {
     @Input() posting: any;
 
-    constructor() {
-    }
-
     ngOnInit() {
+        this.posting.createdAt = moment(this.posting.createdAt).format('LLL');
     }
 
     upvotePosting() {
     }
 
     downvotePosting() {
+    }
+
+    showComments() {
     }
 }

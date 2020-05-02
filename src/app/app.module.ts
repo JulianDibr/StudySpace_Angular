@@ -6,9 +6,8 @@ import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import {fas} from '@fortawesome/free-solid-svg-icons';
 import {far} from '@fortawesome/free-regular-svg-icons';
-import {faCheckCircle, faTimesCircle, faSignOutAlt, faArrowLeft} from '@fortawesome/free-solid-svg-icons';
+import {fas, faCheckCircle, faTimesCircle, faSignOutAlt, faArrowLeft, faComments} from '@fortawesome/free-solid-svg-icons';
 
 // Services
 import {ApiService} from 'src/app/services/api.service';
@@ -66,6 +65,6 @@ import {PostingComponent} from './components/shared/posting/posting.component';
 export class AppModule {
     constructor(library: FaIconLibrary) {
         library.addIconPacks(fas, far);
-        library.addIcons(faCheckCircle, faTimesCircle, faSignOutAlt, faArrowLeft);
+        library.addIcons(faCheckCircle, faTimesCircle, faSignOutAlt, faArrowLeft, faComments);
     }
 }

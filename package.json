@@ -29,6 +29,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.0",
     "mdbootstrap": "^4.15.0",
+    "moment": "^2.25.1",
     "popper.js": "^1.16.1",
     "rxjs": "^6.5.5",
     "tslib": "^1.11.1",

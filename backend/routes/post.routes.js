@@ -7,24 +7,31 @@ const jwt = require('jsonwebtoken');
 // User model
 let Posting = require('../model/Posting');
 
-// Get all posts
+// Get all posts, populated with the users profile
 postingRoute.get('/', verifyToken, (req, res) => {
-    Posting.find().populate('user').exec((error, data) => {
-        if (error) {
-            return next(error)
-        } else {
-            console.log(data);
-            res.json(data)
-        }
+    Posting.find().populate('user voting')
+    .exec()
+    .then(postings => {
+         const response = {
+             postings: postings.map(posting => {
+                 return{
+                     ...,
+                     voting: posting.voting.length
+                 }
+             })
+         }
+
+         res.status(200).send(response);
     })
+    .catch()
 });
 
-// Register User
+// Save a new post
 postingRoute.post('/new', verifyToken, (req, res) => {
     let data = req.body;
     data.user = req.userId;
-
     let posting = new Posting(data);
+
     posting.save((error, savedPost) => {
         if (error) {
             console.log(error);
